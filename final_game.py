@@ -34,7 +34,7 @@ pygame.display.set_caption('Game01')
 # Clock
 reloj = pygame.time.Clock()
 # Image
-character = pygame.image.load('img/rsz_tomas.jpg')
+character = pygame.image.load('img/mbros.jpg')
 
 # Functions
 def things_dodged (count):
