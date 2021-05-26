@@ -20,9 +20,13 @@ red_sparkly = (251, 1, 61)
 green_sparkly = (83, 189, 5)
 # character
 character_width = 73
+
 # surface
-surface_width = 800
-surface_height = 600
+surface_width = 1500
+surface_height = 900
+
+background_image = pygame.image.load("img/aaa.jpg")
+
 
 def getRandomColors():
     return  (randint(0,255),randint(0,255),randint(0,255))
@@ -77,7 +81,7 @@ def show_final_message(text):
    
 
 def you_won():
-      show_final_message("Tomas, I  L-O-V-E  Y-O-U MUCHO!")
+      show_final_message("bla")
       
 
 def touch_front():
@@ -111,15 +115,17 @@ def button(msg, x, y, width, height , button_inactive, button_active, action=Non
         mouse = pygame.mouse.get_pos()
 
 def game_into():
+    surface.blit(background_image, (0, 0))
     pygame.mixer.music.play(1)
     intro = True
+    surface.blit(background_image, (0, 0))
     while  intro:
             for event in pygame.event.get():
                 #print(event)
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-            surface.fill(white)
+            #screen.blit(background_image, [0, 0])
             big_text = pygame.font.SysFont("comicsansms", 30)
             supertext, recttexto = objects_text("Get 10 points, there is a message for you at the end!", big_text)
             recttexto.center = ((surface_width/2), (surface_height/2)) 
@@ -133,6 +139,8 @@ def game_into():
 
 
 def game_loop():
+    # Background
+    surface.blit(background_image, (0, 0))
     #Music
     pygame.mixer.music.play(1)
 
@@ -167,7 +175,7 @@ def game_loop():
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     x_change = 0
         x += x_change
-        surface.fill(white)
+        #surface.fill(white)
         show_blocks(start_xblocks, start_yblocks, width_block, height_block, getRandomColors() )
         start_yblocks += block_speed
         show_character (x, y)
